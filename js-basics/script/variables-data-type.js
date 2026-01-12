@@ -1,12 +1,14 @@
 /* Naming Conventions - letters, underscores, dollar signs etc
 */
+//1. let
 let firstName = "john"
 let lastName = "bobo"
 console.log(firstName, lastName);
 //console.log(age) //error
-console.log(age2) /*possible due to hoisting with var */
+console.log(age2) /*possible due to hoisting with var*/
 
 let age = 30
+//2. var - when we create a variable using var, it gets added into the window object
 var age2 = 30 
 console.log(age);
 const language = "English"
@@ -15,7 +17,7 @@ const language = "English"
 age = 31
 console.log("new age is: ", age);
 
-/*const cant be reassigned but when using non-primitive data type eg array, objects you can modify its content*/
+//3. const - /*const cant be reassigned but when using non-primitive data type eg array, objects you can modify its content*/
 const myArray = [1,2,3.5];
 myArray.push(7,9) //add to the end of array
 console.log(myArray);
