@@ -127,3 +127,17 @@ console.log('Func that takes in array and return object', minMax([3,4,9,0,8,98,9
         //or 
 
 ((length, width)=>{console.log('Area is:', length * width);})(30, 89)
+
+/**************************** - Execution Context- *********************************/
+/**
+ Memory creation Phase:
+ 1. creates the global object(browser = window, Node.js = global)
+ 2. Creates this object and bind it to the global object
+ 3. Set up memory heap and store the function & variables(with var) in global execution context and set thrm to 'Undefined' untill the function invocation
+ * 
+ * 
+ * 
+ Execution Phase:
+ 1. Execute code line by line
+ 2. Assign the variables above the actual value
+ */
