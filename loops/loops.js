@@ -60,7 +60,7 @@ for (let i = 0; i <= 50; i++) {
     With break, the rest of code stops executing once the condition is met, 
     with Continue, it skips that specific code and continue to execute the rest. eg, skip inactive users*/
 
-//MARK: 3. 
+ 
 console.log('\n\nContinue Statement ', '\n ');
 for (let i = 0; i <= 7; i++) {
     if(i === 3){
@@ -71,18 +71,18 @@ for (let i = 0; i <= 7; i++) {
 }
 
 
-//MARK: 2. While & do While Loop (old school of doing iterations prefers for each, for in, for which)
+//MARK: 3. While & do While Loop (old school of doing iterations prefers for each, for in, for which)
 
 /**
  i) while - we put the condition inside the parethesis only, the initialization is done outside the parethesis. The 
     incrementExpression is done inside the {} braces. while loop gives same results as for loop
  */
 // console.log('\n\nwhile & do-while ', '\n ');
-// let w = 0;
-// while(w <= 9) {
-//     console.log(w);
-//     w++;
-// }
+let w = 0;
+while(w <= 9) {
+    console.log(w);
+    w++;
+}
 
 /**
  ii) do while loop will always run at least once, even if the condition is false.
@@ -113,7 +113,6 @@ for(let i = 1; i <= 20; i++){
         console.log('FizzBuzz');
     }else if(i % 3 === 0){
         console.log('Fizz');
-        continue;
     }else if(i % 5 === 0) {
        console.log('Buzz'); 
     }else {
@@ -129,7 +128,7 @@ while(j <= 10){
         console.log('FizzBuzz');
     }else if(j % 3 === 0){
         console.log('Fizz');
-        continue;
+        
     }else if(j % 5 === 0) {
        console.log('Buzz'); 
     }else {
@@ -139,15 +138,87 @@ while(j <= 10){
 }
 
 
-
-
-
-
-
-
-
 /**RULE: 
 
 for loop → use when you know how many times you want to repeat something.
 
 while loop → use when the number of repetitions is unknown and depends on some condition. */
+
+
+//MARK: 4. For of Loop - cleaner way to loop thru an array than a standard for, while loop
+
+console.log('\n\n For of Loop -- for(const item of arrayItems) -- ', '\n ');
+const items = ['book', 'chair', 'table', 'pen', 'pencil', 'water bottle']
+for(const item of items){
+    console.log(item);
+}
+
+    //4.1 Loop thru a strings
+    const str = 'For-of-loop'
+    for(const letter of str) {
+        console.log(letter);
+    }
+
+    //4.2 Loop over maps
+    console.log('\n\n Loop over maps: ', '\n ');
+    const map = new Map()
+    map.set('name', 'Amir Brook')
+    map.set('age', '22')
+
+    for (const [key, value] of map){
+        console.log(key, value);
+    }
+
+//MARK: 5. For in Loop - loop thru an object's values or array
+console.log('\n\nFor-in Loop -- returns the key/index but for-of loop returns the actual value -- ', '\n ');
+
+const colorObj = {
+    color1: 'red',
+    color2: 'blue',
+    color3: 'black'
+}
+for (const key in colorObj){
+    console.log(key , `is ${colorObj[key]}`);
+}
+
+//with array - notice this returns the index
+const colorArray = ['red', 'black','maroon']
+for (index in colorArray){
+    console.log('Color at index', index , `: ${colorArray[index]}`);
+}
+
+//MARK: 6. High-Order Array methods
+    console.log('\n\nHigh-Order function', '\n ');
+    const socials = ['Twitter', 'Linkedin', 'Facebook', 'Instagram']
+    console.log(socials.__proto__);
+
+    //a) Array.forEach(callbackfn: (value: string, index: number, array: string[]) => void, thisArg?: any): void
+
+    /*  the callbackfn A function that accepts up to three arguments. 
+        - forEach calls the callbackfn function one time for each element in the array.*/
+    console.log('\n\n.foreach takes in a callback function and doesnt retuen any value:'
+        ,'||\n socials.forEach((item, index, array)=> console.log(item));');
+
+    socials.forEach(function execute (item, index, array) {
+        console.log( item , `at index: `, index);
+    })
+
+    //i) Passing Named function rather than anonymous function, socials.forEach(logSocials) 
+    function logSocials(item) {
+        console.log(item);
+    }
+    socials.forEach(logSocials)
+
+    //ii) forEach with array of objects
+    const customerData = [
+        {'customerName': 'Brook Mayor', 'phoneNumber': '254718194920'},
+        {'customerName': 'Toe Tap Mayor', 'phoneNumber': '2547111231420'}
+    ]
+    customerData.forEach((item) => console.log(item));
+
+//Mark: b) Array.filter()
+console.log('\n\n.filter() takes in a callback function: and returns the modified data');
+const filteredData = customerData.filter((item, index, array) => item.customerName.startsWith('T'))
+console.log(filteredData);
+
+//Mark: b) Array.map()
