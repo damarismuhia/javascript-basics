@@ -351,7 +351,7 @@ const youngPeople = people
 });
 
 
-console.log(youngPeople);
+console.log('\n\nChallenge 1: ', youngPeople);
 
 /**
  * ## Challenge 2
@@ -364,3 +364,29 @@ Add all of the positive numbers in the array.
 const nums = [2, -30, 50, 20, -12, -9, 7];
 const positiveNums = nums
 .filter((num) => num > 0)
+.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+console.log('\n\n Challenge 2: Add all of the positive numbers in the array:: ', positiveNums);
+
+
+/**
+ * 
+## Challenge 3
+
+**Instructions:**
+
+Create a new array called `capitalizedWords` 
+with the words from the `words` array with the first letter of each word capitalized.
+ */
+const words = ['coder', 'programmer', 'developer'];
+
+let capitalizedWords = []
+for (const word of words){
+    const newWord = word.charAt(0).toUpperCase() + word.substring(1)
+    capitalizedWords.push(newWord)
+}
+console.log('Capitalized First letter using for-of: ', capitalizedWords);
+
+capitalizedWords = words.map((word)=> {
+    return word.charAt(0).toUpperCase() + word.slice(1, word.length)
+});
+console.log('Capitalized First letter using map: ', capitalizedWords);
