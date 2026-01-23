@@ -21,7 +21,7 @@
     <!--Header-->
     <header>
         <img src="assets/note.png" alt="">
-        <h1>Shopping List</h1>
+        <h1 id="app-title" class="class-tit">Shopping List</h1>
     </header>
 
      <!--Form-->
@@ -55,28 +55,28 @@
 
     <!--Display Items-->
     <ul class="items" id="item-list">
-        <li>
+        <li class="item">
             Apples
             <button class="remove-item btn-link text-red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </li>
 
-        <li>
+        <li class="item">
             Orange Juice
             <button class="remove-item btn-link text-red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </li>
 
-        <li>
+        <li class="item">
             Oreos
             <button class="remove-item btn-link text-red">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </li>
 
-        <li>
+        <li class="item">
             Milk
             <button class="remove-item btn-link text-red">
                 <i class="fa-solid fa-xmark"></i>
@@ -86,8 +86,19 @@
 
     <button id="clear" class="btn-clear">Clear All</button>
     <a href="https://facebook.com" id="facebook">Facebook</a>
+
+    <!--Traversing the DOM-->
+    <div class="container">
+        <h1>Traversing the DOM</h1>
+        <div class="parent">
+            <div class="child">Child 1</div>
+            <div class="child">Child 2</div>
+            <div class="child">Child 3</div>
+        </div>
+
+    </div>
    </div>
-   <script src="script.js"></script>
+   <script src="dom.js"></script>
    
 
 </body>

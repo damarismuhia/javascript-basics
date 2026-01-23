@@ -4,6 +4,10 @@
 - IMG of DOM Visualization
 [DOM Visualization]<img src = "/assets/dom-visualization.png" width="400">
 
+## DOM Node Types
+- Everything in the DOM is a node,
+[DOM Visualization]<img src = "![/assets/dom-visualization.png](assets/dom-element-rships.jpeg)" width="400">
+
 
 
 
