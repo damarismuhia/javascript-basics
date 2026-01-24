@@ -168,7 +168,7 @@ console.log('With: ',listItem2);
 */
 
     //MARK: i) Get Child elements from the parent
-    console.log('\n\n-- MARK: Traversing the DOM --')
+    console.log('\n\n-- MARK: Traversing the DOM - Element Node --')
     const parent = document.querySelector('.parent'); 
     console.log('\nNode Element parent: ',parent);
 
@@ -200,5 +200,186 @@ console.log('With: ',listItem2);
     );
 
 
-//MARK: 5. Traversing the DOM -  Nodes
-// 
+//MARK: 5. Traversing the DOM -  Nodes - text, attr, comments,white spaces(especially if comment is on new line)etc
+/**
+ * same logic as elemnt node
+ ```
+    parentNode
+    childNodes[nodenumber]
+    firstChild
+    lastChild
+    nextSibling
+    previousSibling
+```
+ */
+console.log('\n\n-- MARK: Traversing the DOM -  Nodes - text, attr, comments, etc --')
+let parentNode = document.querySelector('.parent')
+console.log('\nChild Node: ', parentNode.childNodes);
+console.log('\nFirst Child: ', parentNode.firstChild, '\nLast Child: ', parentNode.lastChild);
+
+
+
+//MARK: 5. Create & Append Elements
+/**
+ * - createElement()
+ * - createTextNode()
+ * - appendChild()
+ */
+console.log('\n\n-- MARK: Create & Append Elements --')
+
+const div = document.createElement('div')
+div.className = 'my-element'
+div.setAttribute('id', 'id-tag')
+div.title = 'element-title'
+
+//create a text node
+const textNode = document.createTextNode('My World')
+div.append(textNode)
+
+//append element to the page
+document.body.appendChild(div)
+console.log('Create Elemet Programatically: ', div);
+
+//MARK 5.i) InnerHTML vs CreateElement()
+
+/**
+
+------------ This is what we are creating -------------
+ <li class="item">
+    Apples
+    <button class="remove-item btn-link text-red">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</li>
+
+ * 
+ * 1. Quick and Dirty way
+ * 
+ * - NB: Using innerHtml to create items causes the browser tp parse & create all the DOM nodes inside the ul element
+    which is less efficient that creating new elements & appending them.
+    - Another issue is that with innerHTML, html wont automatically reattach event handlers to the new elements it create
+    you would have to keep track of them manually.
+ */
+function createListItem(item) {
+    const li = document.createElement('li');
+
+    li.innerHTML = `${item}
+    <button class="remove-item btn-link text-red">
+        <i class="fa-solid fa-xmark"></i>
+    </button>`;
+
+    document.querySelector('.items').appendChild(li) //items is the ul in html 
+}
+createListItem('Eggs')
+
+ /* 
+ * 2. Clean & Performant way*/
+function createNewItem(item) {
+    const li = document.createElement('li');
+    li.className = 'item'
+    li.style.color = 'maroon'
+
+    let textNode = document.createTextNode(item)
+    
+    li.appendChild(textNode)
+
+    const button = createButton("remove-item btn-link text-red")
+    const icon = createIcon('fa-solid fa-xmark')
+
+    button.appendChild(icon)
+    li.appendChild(button)
+    
+    document.querySelector('.items').appendChild(li)
+}
+function createButton(className) {
+    const button = document.createElement('button');
+    button.className = className
+    return button
+}
+function createIcon(className) {
+    const icon = document.createElement('i');
+    icon.className = className
+    return icon
+}
+createNewItem('Burgers')
+
+
+//MARK: 6. Insert elements, Text & HTML 
+/**
+ * - beforebegin - above the item
+ * - afterend - below the item
+ * 
+ * - afterbegin - same line but at the start
+ * - beforeend - same line but at the end
+ * 
+ * 
+ * 
+ */
+
+//MARK: 6 i). InsertAdjacentElement
+function insertElement(){
+
+    let filter = document.querySelector('.filter')
+
+    const h3 = document.createElement('h3')
+    h3.textContent = '--Insert beforebegin of filter--'
+
+    filter.insertAdjacentElement("beforebegin", h3)
+
+}
+insertElement()
+
+
+//MARK: 6 ii). InsertAdjacentText
+function insertText(){
+    const item = document.querySelector('li:first-child') //first item in the list
+    item.insertAdjacentText('afterend', '--insertAdjacentText afterend(below) item 1-- ')
+
+}
+insertText()
+//MARK: 6 iii). InsertAdjacentHTML - works like inner html
+function insertHTML(){
+    const btn = document.querySelector('#clear');
+    btn.insertAdjacentHTML('afterend', '<h3>--- Insert Html ---</h3>')
+}
+insertHTML()
+
+//MARK: 6 iv). InsertBefore
+function insertbfore(){
+    const ul = document.querySelector('ul') //parent
+
+    const li = document.createElement('li')
+    li.textContent = '--item to insertbefore the 3rd item--'
+
+    const thirdItem = document.querySelector('li:nth-child(3)')
+
+    ul.insertBefore(li, thirdItem) // itemtoInsert, referenceItem /**notice here the insert we are using the parent(ul) rather than the adjacent item */
+
+
+}
+insertbfore()
+
+
+//MARK: 7.  Challenge - Custom insertAfter()
+/**
+tructions**
+
+You may think that since there is an `insertBefore()` method, there is also an `insertAfter()`, but there isn't. 
+In this challenge, I want you to create a custom `insertAfter()` function. 
+
+- The first param will be `newEl` which will be a new element that you create with `document.createElement()` 
+- The second param will be `existingEl` which is an element in the DOM that you want to insert your new element after
+-HINT:  Remember the properties to get parent and sibling elements. Use some of those combined with `insertBefore()`.
+
+ */
+
+function insertAfter(newEl, existingEl) {
+   const parent = existingEl.parentElement
+   parent.insertBefore(newEl, existingEl.nextElementSibling) //always remember insertBefore() works with the parent
+
+}
+const newEl = document.createElement('li');
+newEl.textContent = '--custom insert after--';
+
+const existingEl = document.querySelector('li:nth-child(4)');
+insertAfter(newEl,existingEl)

@@ -6,10 +6,30 @@
 
 ## DOM Node Types
 - Everything in the DOM is a node,
-[DOM Node Types]<img src = "![DOM Node Types](../dom/assets/dom-node-types.png)" width="400">
+
+[DOM Node Types]
+<img src = "![DOM Node Types](../dom/assets/dom-node-types.png)" width="400">
 
 - Node Element Rships
-[Element Rships]<img src = "![Element Rships](../dom/assets/dom-element-rships.jpeg)" width="400">
+
+[Element Rships]
+<img src = "![Element Rships](../dom/assets/element-node-rships.jpeg)" width="400">
+<img src = "![DOM Node Types](../dom/assets/dom-node-types.png)" width="400">
+
+- Node Rships
+ - You can use the following node properties to navigate between nodes with JavaScript:
+
+```javascript
+    parentNode
+    childNodes[nodenumber]
+    firstChild
+    lastChild
+    nextSibling
+    previousSibling
+```
+
+[Node Rships]
+<img src = "![Node Rshipps](../dom/assets/node-rships.png)" width="400">
 
 
 
