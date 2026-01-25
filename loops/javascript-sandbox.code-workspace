@@ -11,10 +11,13 @@
 		},
 		{
 			"path": "../events"
+		},
+		{
+			"path": "../event-keycodes-challange"
 		}
 	],
 	"settings": {
 		"liveServer.settings.port": 5502,
-		"liveServer.settings.multiRootWorkspaceName": "events"
+		"liveServer.settings.multiRootWorkspaceName": "event-keycodes-challange"
 	}
 }

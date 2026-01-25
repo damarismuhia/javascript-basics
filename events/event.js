@@ -174,7 +174,52 @@ document.body.addEventListener('click', onTextClick)
 
 
 
+//MARK: --Keyboard Event & Key Properties-- keypress, keyup, keydown
+console.log('\n--------------- MARK: Keyboard Event & Key Properties etc ---------------\n');
+const itemInput = document.querySelector('#item-input')
 
+//keypress
+const onKeyPress = (e) => {
+    console.log('\nkeypress - fired once when u tap on any key, or hold the key down')
+    
+}
+itemInput.addEventListener('keypress', onKeyPress)
+
+//keyup
+const onKeyUp = (e) => {
+    console.log('\nkeyup - fired when u release the key after holding or tapping')
+}
+itemInput.addEventListener('keyup', onKeyUp)
+
+
+
+//keydown
+const onKeyDown = (e) => {
+    console.log('\nkeydown - keeps firing as far as you are holding the tapped key')
+    /* Key properties
+        1. key
+        2. keyCode - gives the actual keycode ref: https://www.toptal.com/developers/keycode/table
+        3. code - return KeyH, Digit1, for special char it still returns the key on keyboard eg for @ returns  Digit2 etc
+    */
+    console.log(
+        '\n key returns the pressed key: ', e.key,
+        `\n KeyCode for ${e.key} is: `, e.keyCode,
+        '\n Code is: ' , e.code,
+        
+    );
+
+    //4. repeat - returns true if the user is holding the keydown
+    if(e.repeat){
+        console.log('\n\n User is holding key: ', e.key);
+    }
+    console.log(
+        '\n Shift Key pressed: ', e.shiftKey,
+        '\n Ctrl Key pressed: ', e.ctrlKey,
+        '\n Alt Key pressed: ', e.altKey,
+    );
+}
+
+itemInput.addEventListener('keydown', onKeyDown)
 
 
 
