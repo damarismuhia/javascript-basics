@@ -8,10 +8,13 @@
 		},
 		{
 			"path": "../dom"
+		},
+		{
+			"path": "../events"
 		}
 	],
 	"settings": {
 		"liveServer.settings.port": 5502,
-		"liveServer.settings.multiRootWorkspaceName": "dom"
+		"liveServer.settings.multiRootWorkspaceName": "events"
 	}
 }

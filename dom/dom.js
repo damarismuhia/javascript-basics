@@ -383,3 +383,41 @@ newEl.textContent = '--custom insert after--';
 
 const existingEl = document.querySelector('li:nth-child(4)');
 insertAfter(newEl,existingEl)
+
+//MARK: 8. Replace Elements - replaceWith
+function replaceFirstItem(){
+    const itemToReplace = document.querySelector('li:nth-child(2)')
+
+    const li = document.createElement('li')
+    li.textContent = 'Replaced Oranges'
+    li.style.color = 'steelblue'
+
+    itemToReplace.replaceWith(li)
+}
+replaceFirstItem()
+
+
+//MARK: 9. Remove Elements - remove(), removeChild
+function removeClearBtn(){
+    const clearbtn = document.querySelector('#clear')
+    clearbtn.remove()
+}
+
+removeClearBtn()
+
+function removeFirstChild(){
+    const ul = document.querySelector('ul')
+    const li = document.querySelector('li:first-child')
+    ul.removeChild(li)
+}
+//removeFirstChild()
+
+function removeItem(itemNumber){
+    const ul = document.querySelector('ul')
+    const itemToremove = document.querySelector(`li:nth-child(${itemNumber})`)
+     ul.removeChild(itemToremove)
+     //or 
+    const itemToremove2 = document.querySelectorAll('li')[itemNumber] //index number
+    ul.removeChild(itemToremove2)
+}
+//removeItem(7) 

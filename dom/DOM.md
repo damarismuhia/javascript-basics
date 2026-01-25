@@ -1,6 +1,6 @@
 # 1. DOM - Document Object Model
 - DOM is connects web pages to scripts or programming languages. It's a programming interface for web/HTML elements, It includes the html tags, attributes(class, id), text btn tags(text node).
-
+- innerhtml you just need to pass in the text only, bu outer html u need to include the tags
 - IMG of DOM Visualization
 [DOM Visualization]<img src = "![DOM Visualization](../dom/assets/dom-visualization.png)" width="400">
 
