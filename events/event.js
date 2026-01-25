@@ -1,7 +1,7 @@
 const clearBtn = document.querySelector('.btn-clear');
 const clearAllBtn = document.querySelector('.btn-clear-all');
 const continueBtn = document.querySelector('.btn-continue');
-//MARK: 1. Event Listener 
+//MARK: Event Listener 
 /**
  * - onclick,
  * - addEventListener(eventType, callbackFnc),
@@ -50,7 +50,7 @@ setTimeout(function () {
 
 
 
-//MARK: 2. Mouse(btn) Events Listener 
+//MARK: 1. Mouse(btn) Events Listener 
 /** 
  * - click,
  * - dblclick
@@ -174,7 +174,7 @@ document.body.addEventListener('click', onTextClick)
 
 
 
-//MARK: --Keyboard Event & Key Properties-- keypress, keyup, keydown
+//MARK: 2 --Keyboard Event & Key Properties-- keypress, keyup, keydown
 console.log('\n--------------- MARK: Keyboard Event & Key Properties etc ---------------\n');
 const itemInput = document.querySelector('#item-input')
 
@@ -222,7 +222,7 @@ const onKeyDown = (e) => {
 itemInput.addEventListener('keydown', onKeyDown)
 
 
-
+//MARK: 3.  -- Input Events ---
 
 
 
