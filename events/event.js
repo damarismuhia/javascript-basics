@@ -175,7 +175,6 @@ document.body.addEventListener('click', onTextClick)
 
 
 //MARK: 2 --Keyboard Event & Key Properties-- keypress, keyup, keydown
-console.log('\n--------------- MARK: Keyboard Event & Key Properties etc ---------------\n');
 const itemInput = document.querySelector('#item-input')
 
 //keypress
@@ -223,6 +222,146 @@ itemInput.addEventListener('keydown', onKeyDown)
 
 
 //MARK: 3.  -- Input Events ---
+const enterItem = document.getElementById('item-input-two');
+const selectItem = document.getElementById('priority-input');
+const checkbox = document.getElementById('checkbox');
+
+function onInput(e) {
+    /**
+     * - e.target.value - to get the value keyed-in
+     * - 
+     */
+    console.log('------Input items:: ', e.target.value);
+}
+function onChecked(e){
+    const isChacked = e.target.checked //for checkbox we use checked to get the value
+    appTitle.textContent = isChacked ? 'Checked' : "Not Checked"
+ }
+
+ function onFocus(){
+    enterItem.style.outlineStyle = 'solid'
+    enterItem.style.outlineColor = 'red'
+    enterItem.style.outlineWidth = '1px'
+ }
+
+ function onBlur(){
+    enterItem.style.outlineStyle = 'none'
+ }
+/**
+ * 
+ * 1. input - we could use keydown, but it doesnt work with dropdown. can be used with any input type, checkbox etc
+ * 2. change - u can use input event for dropdowns, but change works as well
+ * 3. focus - used when the input field is active
+ * 3. blur - used when the input field is inactive
+ */
+
+enterItem.addEventListener('input', onInput)
+selectItem.addEventListener('change', onInput)
+checkbox.addEventListener('input', onChecked)
+enterItem.addEventListener('focus', onFocus)
+enterItem.addEventListener('blur', onBlur)
+
+
+
+
+
+//MARK: 4.  -- Form Submission & Form Data Object ---
+const form = document.getElementById('form-layout');
+
+function onSubmit(e){
+    /**
+     * By Default a form submits to the same page if there is no action specified on the html, preventDefault() stops that behaviour
+     * You can use FormData to get the input values(modern), or just e.target.value.. 
+     */
+    e.preventDefault(); 
+
+    const formData = new FormData(form)
+    const itemTwo = formData.get('item-two') //what we pass in here is the name attribute specified in the html
+    const selectedItem = formData.get('priority') 
+    console.log('On submitting Form Data:: ', itemTwo, selectedItem);
+}
+
+form.addEventListener('submit', onSubmit)
+
+
+
+
+//MARK: 5.  -- Event Bubbling ---
+/**
+ * The event is first captured and handled by the innermost element & then propagated to outer element
+ * 
+ * 
+   (event target)Button => Div => body => html => document
+  
+ * if lets say the div has a click listener and we click on the the btn which has a click listener, 
+   the div event listener will get fired as well, to stop that you can use e.stopPropagation()
+ */
+const addBtn = document.querySelector('form button')
+const btnDiv = document.getElementById('submit-div')
+
+addBtn.addEventListener('click', (e) => {
+    alert('Button was clicked')
+    e.stopPropagation()
+})
+
+btnDiv.addEventListener('click', () => {
+    console.log('stopPropagation was called on target');
+    alert('Button Div was clicked - no firing')
+})
+
+form.addEventListener('click', () => {
+    alert('Form was clicked')
+})
+
+document.body.addEventListener('click', () => {
+    alert('Body was clicked')
+})
+
+
+//MARK: 6.  -- Event Delegation & Multiple Elements Event listener ---
+
+// Method 1: add event listener on every Item using foreach - not efficient
+
+const liItems = document.querySelectorAll('li')
+liItems.forEach(item => {
+    // item.addEventListener('click', (e) => {
+    //     e.target.remove() //clicked item
+    // })
+})
+
+
+// Method 2: Event Delegation - add single event listener to the parent & target whichever element we want to delete
+const ulItems =document.querySelector('ul')
+ulItems.addEventListener('mouseover', (e)=> {
+    console.log("Tag name is: ", e.target.tagName);
+    if(e.target.tagName === 'LI') {
+        e.target.style.color = 'red'
+       // e.target.remove()
+    }
+})
+
+
+//MARK: 4.  -- Page Loading & Window Event ---
+/**
+ * - resize - listen for page resize
+ * - scroll - eg ui effects 
+ * - focus - click inside the window
+ * - blur - outside the window
+ */
+window.addEventListener('resize', ()=> {
+    appTitle.innerText = `Resized to: ${window.innerWidth} * ${window.innerHeight}`
+})
+ 
+window.addEventListener('scroll', ()=> {
+    console.log('SCROLL:', `Resized to: ${window.scrollX} * ${window.scrollY}`);
+    if(window.scrollY > 70) {
+        document.body.style.backgroundColor = 'black'
+        document.body.style.color = 'white'
+    }else {
+        document.body.style.backgroundColor = 'white'
+        document.body.style.color = 'black'
+    }
+})
 
 
 

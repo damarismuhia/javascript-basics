@@ -20,12 +20,25 @@
         </header>
     
         <!--Form-->
-        <form id="item-form">
+        <form id="form-layout">
             <div class="form-control">
                 <input type="text" class="form-input" id="item-input" name="item" placeholder="Enter Item" />
             </div>
-    
+
             <div class="form-control">
+                <input type="text" class="form-input" id="item-input-two" name="item-two" placeholder="Enter Item Two" />
+            </div>
+
+            <select id="priority-input" name="priority" class="form-input">
+                <option value="0">Select Priority</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <input type="checkbox" id="checkbox"/> Recurring Item
+    
+            <div class="form-control" id="submit-div">
                 <button type="submit" class="btn">
                     <i class="fa-solid fa-plus"></i> Add Item
                 </button>
