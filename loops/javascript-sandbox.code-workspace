@@ -14,10 +14,13 @@
 		},
 		{
 			"path": "../event-keycodes-challange"
+		},
+		{
+			"path": "../shopping-list-project"
 		}
 	],
 	"settings": {
 		"liveServer.settings.port": 5502,
-		"liveServer.settings.multiRootWorkspaceName": "events"
+		"liveServer.settings.multiRootWorkspaceName": "shopping-list-project"
 	}
 }

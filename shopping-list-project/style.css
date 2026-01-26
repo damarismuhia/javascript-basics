@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+    --text-color--: #333;
+    --bg-color-white--: #f5f5f5;
+    --bg-color-white--: #f5f5f5;
+    --light-grey--: #ccc;
+}
+/*Apply to every element,  ::before and ::after pseudo-elements of every element.*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color--);
+    background-color: var(--bg-color-white--);
+
+}
+
+
+.container {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 500px;
+}
+
+header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header h1 {
+    font-weight: 300;
+}
+
+/**Form Styling */
+
+.form-control input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid var(--light-grey--);
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+}
+
+
+.btn {
+    padding: 8px 16px;
+    background-color: var(--text-color--);
+    color: white;
+    border-radius: 8px;
+    border-style: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #444;
+}
+
+/**Filter*/
+.filter {
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--light-grey--);
+    background-color: transparent;
+    font-size: 18px;
+    outline: none;
+}
+li i {
+    background: transparent;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items li {
+    width: 45%;
+    gap: 8px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 8px;
+    border: 1px solid var(--light-grey--);
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 8px 20px 0px;
+}
+li button i {
+    color: red;
+    font-size: 1rem;
+    
+}
+.btn-link {
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--text-color--);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn-clear {
+    width: 100%;
+    margin-top: 16px;
+    border: none;
+    padding: 13px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--light-grey--);
+}
+
+@media (max-width: 500px) {
+    .items li {
+        width: 100%; /*full widdth for this width */
+    }
+}
