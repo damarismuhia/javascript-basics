@@ -121,6 +121,9 @@ li button i {
     font-size: 16px;
     background-color: var(--light-grey--);
 }
+.btn-clear:hover{
+    background-color: #a8a4a4;
+}
 
 /* @media (max-width: 500px) {
     .items li {
