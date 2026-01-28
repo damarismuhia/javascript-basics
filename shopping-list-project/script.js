@@ -2,7 +2,9 @@ const inputItem = document.querySelector('.form-input')
 const itemList = document.querySelector('.items-list')
 
 const itemForm = document.querySelector('.form')
+const formBtn = itemForm.querySelector('button')
 const filterInput = document.querySelector('.filter')
+let isEditMode = false;
 
 
 
@@ -29,6 +31,11 @@ function createIcon(classes){
     return icon
 }
 
+function chekIfItemExists(item){
+    const itemsFromStorage = getItemsFromLocalStorage('items')
+    return itemsFromStorage.includes(item) //check if item is among the items in array
+}
+
 function submitItem(e){
     e.preventDefault();
     console.log('Called? ');
@@ -37,6 +44,18 @@ function submitItem(e){
     if(newItem === ''){
         alert('Add an Item to proceed')
         return;
+    }
+    //check for edit mode
+    if(isEditMode){ //remove the item and add it again since we cant update the item directery
+        const itemToEdit = itemList.querySelector('.edit-mode') //we previously set this class to distiguish the item being isEditMode
+        deleteItemFromLocal(itemToEdit.textContent)
+        itemToEdit.classList.remove('edit-mode') //reset to default class updateFormBtnStyling
+        itemToEdit.remove()
+        isEditMode = false
+    }else {
+        if(chekIfItemExists(newItem)){
+            alert('That item already exists!')
+        }
     }
     addItemToDOM(newItem)
     addItemToLocalStorage(newItem)
@@ -57,11 +76,26 @@ function deleteItem(item){
         setUpUI()
     }
 }
+//MARK: Edit Item
+function setItemToEdit(item){
+    isEditMode = true
+
+    itemList.querySelectorAll('li').forEach(i => i.classList.remove('edit-mode')) //deselect other element when u click on an item(reset the previously assigned class)
+    item.classList.add('edit-mode')
+    updateFormBtnStyling('fa-solid fa-pen', 'Update Item', '#228B22')
+    inputItem.value = item.textContent
+}
+ 
+function updateFormBtnStyling(iconClassName, btnName, btnColor){
+    formBtn.innerHTML = `<i class="${iconClassName}"></i> ${btnName}`
+    formBtn.style.backgroundColor = btnColor
+}
 function onItemClicked(e) {
     if(e.target.parentElement.classList.contains('remove-item')){
         const li = e.target.parentElement.parentElement
         deleteItem(li) //target is icon, icon parent's is button, btn's parent is li item.
-        
+    }else { //edit
+        setItemToEdit(e.target)
     }
 
 }
@@ -164,6 +198,7 @@ function deleteItemFromLocal(item){
 
 
 function setUpUI(){
+    inputItem.value = ''; 
     const item = itemList.querySelectorAll('li') //should be here instead at the global level
     if(item.length === 0){
         btnClear.style.display = 'none'
@@ -172,6 +207,8 @@ function setUpUI(){
        btnClear.style.display = 'block'
         filterInput.style.display = 'block' 
     }
+    updateFormBtnStyling('fa-solid fa-plus', 'Add Item', '#333') /**with react or other frwrk u dont have to update this mannually */
+    isEditMode = false
 }
 
 function init() { //initialize the app -  the func below aint on the global scope

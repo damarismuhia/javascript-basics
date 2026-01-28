@@ -5,6 +5,7 @@
     --bg-color-white--: #f5f5f5;
     --bg-color-white--: #f5f5f5;
     --light-grey--: #ccc;
+    
 }
 /*Apply to every element,  ::before and ::after pseudo-elements of every element.*/
 *,
@@ -53,6 +54,9 @@ header h1 {
     border-radius: 5px;
     font-size: 18px;
     outline: none;
+}
+.edit-mode { /*used programatically on js class*/
+    color: var(--light-grey--);
 }
 
 
@@ -103,6 +107,7 @@ li button i {
     font-size: 1rem;
     
 }
+
 .btn-link {
     font-size: 16px;
     background-color: transparent;
