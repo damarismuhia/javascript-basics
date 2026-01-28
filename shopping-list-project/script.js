@@ -7,14 +7,14 @@ const filterInput = document.querySelector('.filter')
 
 
 //MARK: Add Item - we add the eventLister on the form
-function addItem(value){
+function addItemToDOM(value){
     const li = document.createElement('li')
     li.className = 'item'
     li.appendChild(document.createTextNode(value))
 
     const btn = createBtn('remove-item btn-link text-red')
     li.appendChild(btn)
-    return li
+    itemList.appendChild(li)
 }
 function createBtn(classes){
     const btn = document.createElement('button')
@@ -38,7 +38,8 @@ function submitItem(e){
         alert('Add an Item to proceed')
         return;
     }
-    itemList.appendChild(addItem(newItem))
+    addItemToDOM(newItem)
+    addItemToLocalStorage(newItem)
     setUpUI()
     inputItem.value = ''
     
@@ -48,21 +49,30 @@ itemForm.addEventListener('submit', submitItem)
 //MARK: Remove Item 
 const btnClear = document.getElementById('clear-btn-id')
 
-function deleteItem(e){
-    if(e.target.parentElement.classList.contains('remove-item')){
-        if(window.confirm('Are you sure you want to delete')){
-            e.target.parentElement.parentElement.remove() //target is icon, icon parent's is button, btn's parent is li item.
-            setUpUI()
-        }
+function deleteItem(item){
+    //delete Item from dom
+    if(window.confirm('Are you sure you want to delete')){
+        item.remove() //frm dom
+        deleteItemFromLocal(item.textContent)
+        setUpUI()
     }
 }
-itemList.addEventListener('click', deleteItem)
+function onItemClicked(e) {
+    if(e.target.parentElement.classList.contains('remove-item')){
+        const li = e.target.parentElement.parentElement
+        deleteItem(li) //target is icon, icon parent's is button, btn's parent is li item.
+        
+    }
+
+}
+itemList.addEventListener('click', onItemClicked)
 
 //MARK:  Clear All Items
 function clearAllItems(e){
     while(itemList.firstChild) {
         itemList.removeChild(itemList.firstChild)
     }
+    localStorage.removeItem('items')
     setUpUI()
     //itemList.innerHTML = ''
 }
@@ -90,6 +100,63 @@ function filterItem(e){
 }
 filterInput.addEventListener('input',filterItem)
 
+//MARK: Local Storage - Under Application
+/**
+ * - localStorage & sessionStorage are properties on window object that allow us to access a Storage object,
+ * - Data is stored in the browser as akey-value pairs, and values are strings - cant store objects directly unless u stringfy them
+ * - Both have the same apo but localStorage doesnt expire, while sessionStorage only lasts untill the page is closed
+ 
+    localStorage methods
+    ---------------
+    1. .setItem('key', 'value')
+    2. .getItem('key')
+    3. .removeItem('key')
+    4. .clear()
+ */
+
+//MARK: -- Add Item to LocalStrorage
+function addItemToLocalStorage(item){
+    const itemsFromStorage = getItemsFromLocalStorage('items')
+
+    itemsFromStorage.push(item)
+
+    localStorage.setItem('items', JSON.stringify(itemsFromStorage))
+}
+
+//MARK: -- Display Items From LocalStrorage
+function getItemsFromLocalStorage(){
+    let itemsFromStorage;
+
+    if(localStorage.getItem('items') === null){
+        itemsFromStorage = [];
+    }else {
+        itemsFromStorage = JSON.parse(localStorage.getItem('items')); 
+    }
+    return itemsFromStorage
+}
+function displayItems(){
+    const items = getItemsFromLocalStorage('items');
+    items.forEach(item => {
+        addItemToDOM(item)
+    })
+    setUpUI()
+}
+
+//MARK: -- Remove Items From LocalStrorage
+function deleteItemFromLocal(item){
+    let itemsFromStorage = getItemsFromLocalStorage('items')
+
+    //filter out items to be removed
+    itemsFromStorage = itemsFromStorage.filter(it => it !== item)
+
+    //Update local Storage
+    localStorage.setItem('items', JSON.stringify(itemsFromStorage))
+
+}
+
+
+
+
 
 
 
@@ -106,4 +173,9 @@ function setUpUI(){
         filterInput.style.display = 'block' 
     }
 }
-setUpUI()
+
+function init() { //initialize the app -  the func below aint on the global scope
+    document.addEventListener('DOMContentLoaded', displayItems) //when page loads
+    setUpUI()
+}
+init()
