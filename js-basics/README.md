@@ -5,6 +5,8 @@
 
 # 1. JavaScript
 JS is dynamically-typed language. We don't explicitly define the types for our variables
+- JS is synchronous but events are asynchronous. But we can achieve asynchronous with callbacks & promises, AJAX(old)
+
 
 # 2. Operators
 
