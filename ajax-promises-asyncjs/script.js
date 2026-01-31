@@ -99,7 +99,7 @@ document.getElementById('stop-interval').addEventListener('click', stopColorChan
  /**
   * - Promises represent the eventual completion or failure of an async operation
   * - It is a promise that it will complete some tasks, and in the meantime, the rest of the code will continue to execute.
-  * - instead of chaining promises using the .then().. you can call Promises.all(request 1, request 2).then ...
+  * - instead of chaining promises using the .then(async await is its alternative).. you can call Promises.all(request 1, request 2).then ...
   * 
   */
  const promise = new Promise((resolve, reject) => {

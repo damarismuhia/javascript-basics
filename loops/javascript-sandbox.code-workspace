@@ -23,10 +23,16 @@
     },
     {
       "path": "../ajax-challenge"
+    },
+    {
+      "path": "../fetch-api_async-await"
+    },
+    {
+      "path": "../fetch-api-challenge"
     }
   ],
   "settings": {
     "liveServer.settings.port": 5502,
-    "liveServer.settings.multiRootWorkspaceName": "ajax-promises-asyncjs",
+    "liveServer.settings.multiRootWorkspaceName": "fetch-api-challenge",
   },
 }
