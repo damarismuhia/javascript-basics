@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    padding: 16px;
+}
+h1 {
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+input {
+    padding: 10px;
+
+}
+button {
+    padding: 8px 23px;
+    background-color: brown;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: red;
+}
+
+#todo-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-todo {  
+    width: 30%;
+    margin: 8px 5px 8px 5px;
+    background-color: lightgray;
+    padding: 10px;
+    margin-right: 2px;
+    border-radius: 5px;
+    
+}
+.done {
+    background-color: green;
+    color: white;
+}

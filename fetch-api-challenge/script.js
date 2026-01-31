@@ -1,17 +1,18 @@
+
 /**
  * - show loader
  * - display data
- * - change background
+ * - Fetch api error handling - inside the first then res object
  */
-
-
-
-
-
 function fetchUser (){
     showSpinner()
-    fetch('https://api.randomuser.me/')
-    .then(res => res.json())
+    fetch('https://randomuser.me/api/')
+    .then(res => {
+        if(!res.ok){ //fetch api only catches the network error, so its a good practise to check for http status code here
+            throw new Error('Something went wrong');
+        }
+        return res.json();
+    })
     .then(data => {
         hideSpinner()
         console.log('Data: ', data);
@@ -20,7 +21,7 @@ function fetchUser (){
     })
     .catch(error => {
         hideSpinner()
-        console.log('Error: ', error);
+        console.log('Error is: ', error);
     })
 }
 function displayUser(user){
