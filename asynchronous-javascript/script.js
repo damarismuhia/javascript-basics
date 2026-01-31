@@ -44,3 +44,46 @@ function stopColorChange() {
 
 document.getElementById('start-interval').addEventListener('click', startColorChange)
 document.getElementById('stop-interval').addEventListener('click', stopColorChange)
+
+
+
+
+//MARK: 3. AJAX(Asynchronous Javascript & XML) & XHR(XMLHttpRequest) Object
+/**
+ * 1. This is a built-in browser object that allow us make requests to the servers without having to refresh the page
+ * 2. readyState has 5 possible values
+        - 0: request not initialized 
+        - 1: server connection established / opened
+        - 2: request received / headers received
+        - 3: processing request / loading
+        - 4: request finished & server is ready
+
+ * 3. .open - to configure the https request: url, method, async(runs in bg, default is true) etc
+ * 4. .onreadystatechange - Listen for changes, This runs every time the request status changes.
+ * 
+ *     
+ */
+
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://jsonplaceholder.typicode.com/users')
+
+  xhr.onreadystatechange = function () { // we cant use arrow function here as thry dont have thier own this(xhr obj)
+    
+    if(this.readyState === 4 && this.status === 200) {
+        console.log(this);
+        const response = JSON.parse(this.responseText);
+        console.log("response: ", response);
+
+        response.forEach(item => {
+            const li = document.createElement('li')
+            
+            li.classList.add('li-item');
+
+            li.innerHTML = `<strong> ${item.name}</strong> - ${item.company.catchPhrase}`
+            document.querySelector('.display-list').appendChild(li)
+        });
+    } 
+  };
+
+  xhr.send();

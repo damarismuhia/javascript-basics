@@ -1,29 +1,32 @@
 {
   "folders": [
     {
-      "path": "../js-basics",
+      "path": "../js-basics"
     },
     {
-      "path": ".",
+      "path": "."
     },
     {
-      "path": "../dom",
+      "path": "../dom"
     },
     {
-      "path": "../events",
+      "path": "../events"
     },
     {
-      "path": "../event-keycodes-challange",
+      "path": "../event-keycodes-challange"
     },
     {
-      "path": "../shopping-list-project",
+      "path": "../shopping-list-project"
     },
     {
-      "path": "../asynchronous-javascript",
+      "path": "../asynchronous-javascript"
     },
+    {
+      "path": "../chuck-joke-gen-challenge-ajax-api"
+    }
   ],
   "settings": {
     "liveServer.settings.port": 5502,
-    "liveServer.settings.multiRootWorkspaceName": "asynchronous-javascript",
+    "liveServer.settings.multiRootWorkspaceName": "chuck-joke-gen-challenge-ajax-api",
   },
 }

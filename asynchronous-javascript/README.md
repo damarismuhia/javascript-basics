@@ -1,0 +1,2 @@
+- AJAX/ XMLHttpRequest obj was original way of doing http requests but now we use Fetch API
+- 400 Range status code - client error 
