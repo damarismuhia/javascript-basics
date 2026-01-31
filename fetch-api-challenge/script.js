@@ -8,7 +8,7 @@ function fetchUser (){
     showSpinner()
     fetch('https://randomuser.me/api/')
     .then(res => {
-        if(!res.ok){ //fetch api only catches the network error, so its a good practise to check for http status code here
+        if(!res.ok){ //fetch api only catches the network error, so its a good practise to check for http status code here, but with axio lib it handles it on ctch block
             throw new Error('Something went wrong');
         }
         return res.json();
