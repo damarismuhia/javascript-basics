@@ -87,3 +87,49 @@ document.getElementById('stop-interval').addEventListener('click', stopColorChan
   };
 
   xhr.send();
+
+  //MARK: 4. Callback hell 
+  /**
+   *  - Callback hell - nested callback func
+   * - To solve this we use promises/ async await
+   */
+
+
+ //MARK: 5. Promises
+ /**
+  * - Promises represent the eventual completion or failure of an async operation
+  * - It is a promise that it will complete some tasks, and in the meantime, the rest of the code will continue to execute.
+  * - instead of chaining promises using the .then().. you can call Promises.all(request 1, request 2).then ...
+  * 
+  */
+ const promise = new Promise((resolve, reject) => {
+    setTimeout(()=> {
+        let error = false;
+        if(!error){
+            resolve({
+                name: "Joe Brook",
+                userId: 'JB5689',
+                email: 'brook@gmail.com'
+            });
+        }else {
+            reject('Something went wrong');
+        }
+    }, 2000);
+ })
+ promise
+ .then(data => {
+    console.log('Grab the data passed: ', data);
+    return data.userId // promise chaining, then will be passed down
+ })
+ .then((userId) => {
+    //fetchUser(userId);
+    console.log('Grab from promise chaining: ', userId);
+ })
+ .catch((err) =>{
+    console.log('\nUse .catch to get promise error: ', err);
+ })
+ .finally( () => {
+    console.log('\nfinally is called wheater promise has been resolve or rejected');
+ });
+
+

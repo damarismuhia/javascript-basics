@@ -19,14 +19,14 @@
       "path": "../shopping-list-project"
     },
     {
-      "path": "../asynchronous-javascript"
+      "path": "../ajax-promises-asyncjs"
     },
     {
-      "path": "../chuck-joke-gen-challenge-ajax-api"
+      "path": "../ajax-challenge"
     }
   ],
   "settings": {
     "liveServer.settings.port": 5502,
-    "liveServer.settings.multiRootWorkspaceName": "chuck-joke-gen-challenge-ajax-api",
+    "liveServer.settings.multiRootWorkspaceName": "ajax-promises-asyncjs",
   },
 }
