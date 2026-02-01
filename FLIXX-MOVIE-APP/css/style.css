@@ -36,6 +36,10 @@ a {
 a:hover  {
     color: var(--color-secondary);
 }
+.active-link {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
 
 ul {
     list-style-type: none;
@@ -293,4 +297,21 @@ footer .container {
 
 .details-bottom h4 {
     padding-bottom: 15px;
+}
+
+
+
+/* Alert */
+.alert {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.success {
+    background: green;
+}
+
+.error {
+    background: red;
 }
