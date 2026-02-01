@@ -29,10 +29,13 @@
     },
     {
       "path": "../fetch-api-challenge"
+    },
+    {
+      "path": "../FLIXX-MOVIE-APP"
     }
   ],
   "settings": {
     "liveServer.settings.port": 5502,
-    "liveServer.settings.multiRootWorkspaceName": "fetch-api_async-await",
+    "liveServer.settings.multiRootWorkspaceName": "FLIXX-MOVIE-APP",
   },
 }

@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+    --color-primary: #020d18;
+    --color-secondary: #f1c40f;
+    --header-color: #000000cc;
+    --color-txt: #fff;
+    --card-color: #04376b;
+    --card-hover-color: #0a4b8f;
+}
+
+*,
+*::before,
+*::after { /*Apply to every element,  ::before and ::after pseudo-elements of every element.*/
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--color-txt);
+    background-color: var(--color-primary);
+    overflow-x: hidden;
+
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-txt);
+}
+
+a:hover  {
+    color: var(--color-secondary);
+}
+
+ul {
+    list-style-type: none;
+}
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/** Header section
+* - 
+*
+*/
+
+.heros-header {
+    padding: 20px 0; /*we use padding instead of hand-coded height: ;*/
+    background: var(--header-color);
+}
+.heros-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.heros-header ul {
+    display: flex;
+    gap: 20px;
+    
+}
+.heros-header ul li a{
+    font-size: 16px;
+}
+.logo {
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+
+/* Section: Now Playing */
+section.now-playing {
+    padding: 60px;
+    background: url(../images/showcase-bg.jpg) no-repeat center center/cover;
+}
+
+section h2 {
+    margin: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.swiper {
+    width: 100%;
+    height: 50%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.swiper-rating  {
+    padding: 10px;
+    font-size: 18px;
+    
+}
+.rating-txt {
+    color: white;
+    font-size: 20px;
+}
+
+
+/**Search*/
+
+section.search {
+    padding: 60px;
+    margin: 40px;    
+}
+
+.search .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search .container form {
+    width: 100%;
+    max-width: 600px;
+}
+.search-radio label {
+    margin-right: 15px;
+}
+
+.search-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.search-flex input{
+    flex: 6; /**layout weight*/
+    padding: 10px;
+    height: 50px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100%;
+    color: var(--color-txt);
+}
+
+.search-flex input::placeholder {
+    color: var(--color-txt);
+}
+.search-flex input:focus {
+    outline: none;
+}
+
+.search-flex button {
+    flex: 1;
+    background: var(--color-secondary);
+    padding: 10px;
+    border-radius: 5px;
+    height: 50px;
+    display: block;
+    width: 100%;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+.search-flex button:hover {
+    background-color: transparent;
+    border: 1px solid var(--color-secondary);
+}
+
+.search-flex button i {
+    color: #000;
+    font-size: 15px;
+}
+.search-flex button:hover i{
+    color: white;
+}
+
+/**Popular Movie*/
+section.container h2 {
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*if min width goes below 250px, wrap content*/
+    gap: 25px;
+    margin-bottom: 50px;
+}
+.card {
+    background-color: var(--card-color);
+    padding: 5px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px;
+}
+
+.card:hover {
+    background-color: var(--card-hover-color);
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%; /**image stretch to fill 100% of the width of its parent container card.*/
+}
+
+.card-body {
+    padding: 10px;
+    font-size: 20px;
+}
+
+/**Footer*/
+footer {
+    padding: 20px 0;
+}
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+}
