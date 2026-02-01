@@ -244,3 +244,53 @@ footer .container {
     gap: 15px;
     font-size: 20px;
 }
+
+/***************************Details Page***************************************/
+.primary-btn {
+    display: inline-block; /**wrap content*/
+    background: transparent;
+    padding: 11px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secondary);
+    transition: all 0.3s ease-in-out;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.primary-btn:hover {
+    background: var(--color-secondary);
+    color: #000;
+    transform: scale(1.05);
+}
+
+.details-top {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 30px;
+}
+
+.details-top img{
+    object-fit: cover;
+    width: 400px;
+    height: 100%;
+
+}
+
+.details-top p {
+    margin: 20px 0;
+}
+.details-bottom {
+    margin-bottom: 30px;
+}
+.details-bottom li {
+    margin: 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ffffff1a;
+}
+
+.details-bottom h4 {
+    padding-bottom: 15px;
+}
