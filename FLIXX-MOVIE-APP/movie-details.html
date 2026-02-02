@@ -35,42 +35,34 @@
         <div class="movie-details">
             <div class="details-top">
                 <div>
-                    <img src="images/no-image.jpg" class="card-img-top" alt="Movie Title">
+                    <img src="images/no-image.jpg" class="card-img-top" alt="">
                 </div>
 
                 <div>
-                    <h2>Movie Title</h2>
+                    <h2 id="movie-title"></h2>
                 
                     <p class="rating">
-                        <i class="fa-solid fa-star text-secondary"><span class="rating-txt"> 8 / 10</span></i>
+                        <i class="fa-solid fa-star text-secondary"><span class="rating-txt"></span></i>
                     </p>
                 
-                    <p class="text-muted">Release Date: XX/XX/XXXX</p>
+                    <p class="text-muted"></p>
                 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque libero voluptates cum laborum illum harum eos
-                        adipisci reprehenderit debitis ratione veniam quo deserunt, consequuntur aut dicta rem accusamus tempore animi
-                        id sapiente perspiciatis ea, consequatur nisi. Aperiam, minima molestiae? Minus eum possimus officia
-                        exercitationem nulla laborum nesciunt cum earum?.</p>
+                    <p class="descri"></p>
                     <h5>Genres</h5>
                     <ul class="list-group">
-                        <li>Genre 1</li>
-                        <li>Genre 2</li>
-                        <li>Genre 3</li>
+                        
                     </ul>
-                    <a href="#" target="_blank" class="primary-btn">Visit Movie Homepage</a>
+                    <a href="" target="_blank" id="visit-movie-hm" class="primary-btn">Visit Movie Homepage</a>
                 </div>
 
             </div>
             <div class="details-bottom">
                 <h2>Movie Info</h2>
-                <ul>
-                    <li><span class="text-secondary">Budget:</span> $1,000,000</li>
-                    <li><span class="text-secondary">Revenue:</span> $2,000,000</li>
-                    <li><span class="text-secondary">Runtime:</span> 90 minutes</li>
-                    <li><span class="text-secondary">Status:</span> Released</li>
+                <ul class="budget-ul">
+                    
                 </ul>
                 <h4>Production Company</h4>
-                <div class="list-group">Company 1, Company 2, Company 3</div>
+                <div class="list-companies"></div>
             </div>
         </div>
     </section>
@@ -93,7 +85,8 @@
         
         <div class="spinner"></div>
         
-        <script src="./js/script.js"></script>
+        <script src="./js/details.js"></script>
+        <script src="./js/utils.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     
 </body>

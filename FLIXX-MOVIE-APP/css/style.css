@@ -111,12 +111,12 @@ section h2 {
     align-items: center;
 }
 
-/* .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-} */
+}
 
 .swiper-rating  {
     padding: 10px;
@@ -125,7 +125,8 @@ section h2 {
 }
 .rating-txt {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 
@@ -200,17 +201,42 @@ section.search {
 .search-flex button:hover i{
     color: white;
 }
+.primary-btn-small {
+    display: inline-block;
+    /**wrap content*/
+    background: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secondary);
+    transition: all 0.3s ease-in-out;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary-btn-small:hover {
+    background: var(--color-secondary);
+    color: #000;
+    transform: scale(1.05);
+}
+
+.act-btn {
+    margin-bottom: 15px;
+}
+
+
 
 /**Popular Movie*/
 section.container h2 {
     font-weight: 600;
 }
 
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*if min width goes below 250px, wrap content*/
     gap: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .card {
     background-color: var(--card-color);
@@ -268,6 +294,7 @@ footer .container {
     transform: scale(1.05);
 }
 
+
 .details-top {
     display: flex;
     gap: 50px;
@@ -286,6 +313,20 @@ footer .container {
 .details-top p {
     margin: 20px 0;
 }
+.details-top h5 {
+    border-bottom: 1px solid var(--color-secondary);
+    display: inline-block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.details-top ul li {
+    font-size: 16px;
+    list-style-type: circle;
+    font-weight: 300;
+}
+
 .details-bottom {
     margin-bottom: 30px;
 }
@@ -295,8 +336,16 @@ footer .container {
     border-bottom: 1px solid #ffffff1a;
 }
 
+.details-bottom .list-companies {
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 200;
+}
+
 .details-bottom h4 {
-    padding-bottom: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--color-secondary);
+    display: inline-block;
 }
 
 

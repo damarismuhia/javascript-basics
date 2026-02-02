@@ -33,47 +33,33 @@
             <a href="index.html" class="primary-btn"><i class="fas fa-chevron-left"></i> Back To TV Shows</a>
         </div>
 
-        <div class="movie-details">
+        <div class="show-details">
             <div class="details-top">
                 <div>
                     <img src="images/no-image.jpg" class="card-img-top" alt="Movie Title">
                 </div>
 
                 <div>
-                    <h2>Show Name</h2>
+                    <h2 id="show-title"></h2>
 
                     <p class="rating">
-                        <i class="fa-solid fa-star text-secondary"><span class="rating-txt"> 8 / 10</span></i>
+                        <i class="fa-solid fa-star text-secondary"><span class="rating-txt"></span></i>
                     </p>
 
-                    <p class="text-muted">Aired: XX/XX/XXXX</p>
+                    <p class="text-muted"></p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque libero voluptates cum laborum
-                        illum harum eos
-                        adipisci reprehenderit debitis ratione veniam quo deserunt, consequuntur aut dicta rem accusamus
-                        tempore animi
-                        id sapiente perspiciatis ea, consequatur nisi. Aperiam, minima molestiae? Minus eum possimus
-                        officia
-                        exercitationem nulla laborum nesciunt cum earum?.</p>
+                    <p id="tv-descri"></p>
                     <h5>Genres</h5>
-                    <ul class="list-group">
-                        <li>Genre 1</li>
-                        <li>Genre 2</li>
-                        <li>Genre 3</li>
-                    </ul>
-                    <a href="#" target="_blank" class="primary-btn">Visit Show Homepage</a>
+                    <ul class="list-group"></ul>
+                    <a href="#" target="_blank" class="primary-btn" id="visit-show-hm">Visit Show Homepage</a>
                 </div>
 
             </div>
             <div class="details-bottom">
                 <h2>Show Info</h2>
-                <ul>
-                    <li><span class="text-secondary">Number of Episodes:</span> 50</li>
-                    <li><span class="text-secondary">Last Episode to Air:</span> Dams Learning Js</li>
-                    <li><span class="text-secondary">Status:</span> Released</li>
-                </ul>
+                <ul class="show-info-ul"> </ul>
                 <h4>Production Company</h4>
-                <div class="list-group">Company 1, Company 2, Company 3</div>
+                <div class="list-companies"></div>
             </div>
         </div>
     </section>
@@ -96,7 +82,9 @@
 
     <div class="spinner"></div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/details.js"></script>
+    <script src="./js/utils.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 </body>
