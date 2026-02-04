@@ -2,7 +2,8 @@ const search = {
     term: '',
     type: '',
     page: 1,
-    totalPages: 1
+    totalPages: 1,
+    totalResults: 0
 }
 //MARK: 1. Highlight Active Link
 function highlightActiveLink(){
@@ -19,7 +20,7 @@ function highlightActiveLink(){
 //MARK: 2. Core SEARCH Fetch Request
 async function searchApiData() {
     showSpinner()
-    const fullUrl = `${global.baseUrl}search/${search.type}?api_key=${global.apiKey}&query=${search.term}`
+    const fullUrl = `${global.baseUrl}search/${search.type}?api_key=${global.apiKey}&query=${search.term}&page=${search.page}`
     try {
         const res = await fetch(fullUrl, {
             headers: {
@@ -53,13 +54,16 @@ async function searchMovieShow(){
     search.type = urlParams.get('type');
     search.term = urlParams.get('search-term');
     if(search.term !== '' && search.term !== null){
-        const {results, total_pages, page} = await searchApiData();
+        const {results, total_pages, page, total_results} = await searchApiData();
         if(!results)  return;
         if(results.length === 0){
             showAlert('No Results found');
             return;
         }
         document.querySelector('#search-term').value = '';
+        search.totalPages = total_pages;
+        search.page = page
+        search.totalResults = total_results;
 
         displaySearchReqults(results)
         console.log("SEARCH RESULTS::", results);
@@ -74,6 +78,15 @@ async function searchMovieShow(){
 
 
 function displaySearchReqults(results){
+    //clear previous results
+    document.getElementById('search-results').innerHTML = ''
+    document.getElementById('search_heading').innerHTML = ''
+    document.getElementById('pagination').innerHTML = ''
+    const searchHeading = document.querySelector('#search_heading');
+    const h4 = document.createElement('h4');
+    h4.appendChild(document.createTextNode(`${results.length} of ${search.totalResults} RESULTS for ${search.term}`))
+    searchHeading.appendChild(h4)
+
     results.forEach(item => {
         const grid = document.getElementById('search-results');
 
@@ -112,8 +125,54 @@ function displaySearchReqults(results){
         grid.appendChild(div)
 
     })
+    displayPagination()
 }
 
+function displayPagination(){
+    const topDIv = document.querySelector('#pagination');
+    const div = document.createElement('div');
+    div.classList.add('act-btn');
+
+    const prevBtn = document.createElement('button');
+    prevBtn.classList.add('primary-btn-small');
+    prevBtn.id = 'prev';
+    prevBtn.appendChild(document.createTextNode('Prev'));
+
+    const nextBtn = document.createElement('button');
+    nextBtn.classList.add('primary-btn-small');
+    nextBtn.id = 'next';
+    nextBtn.appendChild(document.createTextNode('Next'));
+
+    const pageDiv = document.createElement('div');
+    const h5 = document.createElement('h4').appendChild(document.createTextNode(`Page ${search.page} of ${search.totalPages}`));
+    pageDiv.appendChild(h5)
+    div.appendChild(prevBtn);
+    div.appendChild(nextBtn);
+   
+    topDIv.appendChild(div)
+    topDIv.appendChild(pageDiv);
+
+    //Disable prev on first page & next on last page
+    console.log("SEARCH PAGE:: ", search.page);
+    if(search.page === 1){
+        prevBtn.disabled = true
+    }
+    if(search.page === search.totalPages){
+        nextBtn.disabled = true
+    }
+    
+    nextBtn.addEventListener('click', async () => {
+        search.page++;
+        const {results, total_pages } = await searchApiData()
+        displaySearchReqults (results);
+    })
+    prevBtn.addEventListener('click', async () => {
+        search.page--;
+        const {results, total_pages } = await searchApiData()
+        displaySearchReqults (results);
+    })
+
+}
 
 function showSpinner(){
     document.querySelector('.spinner').classList.add('show');

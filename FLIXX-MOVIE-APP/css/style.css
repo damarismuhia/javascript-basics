@@ -143,6 +143,11 @@ section.search {
     justify-content: center;
     align-items: center;
 }
+#search_heading {
+    text-align: center;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
 
 .search .container form {
     width: 100%;
@@ -222,6 +227,26 @@ section.search {
 
 .act-btn {
     margin-bottom: 15px;
+    display: flex;
+    gap: 8px;
+}
+#prev:disabled {
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+#prev:disabled:hover {
+    background: transparent;
+    color: #fff;
+}
+#next:disabled {
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+#next:disabled:hover {
+    background: transparent;
+    color: #fff;
 }
 
 
