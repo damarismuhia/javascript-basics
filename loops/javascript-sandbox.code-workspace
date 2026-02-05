@@ -32,10 +32,13 @@
     },
     {
       "path": "../FLIXX-MOVIE-APP"
+    },
+    {
+      "path": "../web_browser_apis"
     }
   ],
   "settings": {
     "liveServer.settings.port": 5502,
-    "liveServer.settings.multiRootWorkspaceName": "FLIXX-MOVIE-APP",
+    "liveServer.settings.multiRootWorkspaceName": "web_browser_apis",
   },
 }
