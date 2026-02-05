@@ -126,3 +126,6 @@ function init(){
 
 
 document.addEventListener('DOMContentLoaded', init)
+document.querySelector('.canva').addEventListener('click', () => {
+    window.location.href='../canva.html'
+})

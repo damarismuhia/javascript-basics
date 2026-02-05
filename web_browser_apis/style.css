@@ -25,3 +25,29 @@ body {
     height: 400px;
     width: 100%;
 }
+#btn-div{
+    text-align: center;
+}
+
+.canva {
+    display: inline-block;
+    margin-top: 50px;
+    background-color: cadetblue;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+.canva:hover {
+    opacity: 0.8;
+}
+
+.canva-container {
+    text-align: center;
+}
+
+#my-canvas {
+    
+    border: 1px solid black;
+}

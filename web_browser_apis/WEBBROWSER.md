@@ -1,5 +1,5 @@
 1. Geolocation API - using leaflet library
-2. Canvas - allow us to draw
+2. Canvas - allow us to draw graphics
 3. RequestAnimationFrame()
 4. Web Audio
 5. Web Video
